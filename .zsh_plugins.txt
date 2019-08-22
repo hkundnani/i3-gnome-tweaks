@@ -1,0 +1,9 @@
+# plugins
+#zsh-users/zsh-syntax-highlighting
+zdharma/fast-syntax-highlighting
+robbyrussell/oh-my-zsh path:plugins/command-not-found/command-not-found.plugin.zsh
+robbyrussell/oh-my-zsh path:plugins/colored-man-pages/colored-man-pages.plugin.zsh
+
+# themes
+mafredri/zsh-async
+sindresorhus/pure

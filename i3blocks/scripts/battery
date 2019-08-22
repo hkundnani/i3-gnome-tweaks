@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# function displayNotification() {
+# 	if [ $showNotification -eq "true" ]; then
+# 		dunstify -a "laptopBattery" -u $urgency -i "" -r "0" $msg
+# 	fi
+# }
+
+capacity=$(cat /sys/class/power_supply/"BAT0"/capacity) || exit
+status=$(cat /sys/class/power_supply/"BAT0"/status)
+
+if [ "$status" = "Charging" ]; then
+	color="#ffffff"
+	icon=""
+elif [ "$capacity" -ge 95 ]; then
+	color="#00ff00"
+	icon=""	
+elif [ "$capacity" -ge 65 -a "$capacity" -lt 95 ]; then
+	color="#00ff00"
+	icon=""
+elif [ "$capacity" -ge 40 -a "$capacity" -lt 65 ]; then
+	color="#ffff00"
+	icon=""
+elif [ "$capacity" -ge 15 -a "$capacity" -lt 40 ]; then
+	color="#ffa500"
+	icon=""
+elif [ "$capacity" -lt 15 ]; then
+	color="#ff0000"
+	icon=""
+fi
+
+printf "<span color='%s'>%s %s</span>" "$color" "$icon" "$(echo "$capacity" | sed -e 's/$/%/')"

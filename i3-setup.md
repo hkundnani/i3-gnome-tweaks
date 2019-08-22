@@ -55,3 +55,11 @@ Install arandr using the following command
 ```shell
 pacman -S arandr
 ```
+### Assign application to workspace
+Install a tool xprop to get the class of each application.
+```shell
+assign [class="Gnome-terminal"] $ws1
+```
+### Add image to workspace number
+First download the fontawesome library and add the .otf files to ~/.fonts folder
+Then go to the config and add the icons next to the number by copying the icons from fontawesome website.
